@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nsoma Consulting - SETA & QCTO Accreditation, ISO Certification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a1b9a;  /* Deep purple */
+            --primary-dark: #4a148c;
+            --primary-light: #9c4dcc;
+            --secondary: #000000; /* Black */
+            --accent: #e1bee7;    /* Light purple accent */
+            --text-light: #f3e5f5;
+            --text-dark: #212121;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--secondary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text .nsoma {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        }
+        
+        .logo-text .consulting {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+        
+        .logo-text .tagline {
+            font-size: 12px;
+            color: #ccc;
+            font-style: italic;
+            margin-top: 3px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(106,27,154,0.7)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(106,27,154,0.1);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(106,27,154,0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(to right, #f3e5f5, #ede7f6);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Clients Section */
+        .clients {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .client-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .client-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .client-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .client-info h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .client-info p {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ddd;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--secondary);
+                transition: left 0.3s;
+                box-shadow: 5px 0 10px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            .logo-text .nsoma {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Your actual logo -->
+                <img src="assets/logo.jpg" alt="Nsoma Consulting Logo" style="height: 60px; margin-right: 10px; border-radius: 8px;">
+                <div class="logo-text">
+                    <div class="nsoma">NSOMA</div>
+                    <div class="consulting">CONSULTING</div>
+                    <div class="tagline">LEAN ON US</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Professional SETA & QCTO Accreditation Services</h1>
+            <p>We provide comprehensive accreditation, training, assessment, and ISO certification services to help your organization excel.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a range of professional services to help your organization achieve compliance and excellence.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-content">
+                        <h3>SETA Accreditation</h3>
+                        <p>We guide you through the entire SETA accreditation process, ensuring compliance with all requirements.</p>
+                        <div class="price"></div>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-content">
+                        <h3>QCTO Accreditation</h3>
+                        <p>Professional assistance with QCTO accreditation for your qualifications and programs.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-content">
+                        <h3>ISO 9001 Certification</h3>
+                        <p>Comprehensive ISO 9001 certification services to enhance your quality management systems.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Training & Assessments</h3>
+                        <p>Professional training programs and assessments tailored to your organization's needs.</p>
+                        <div class="price"></div>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Nsoma Consulting</h2>
+                    <p>Nsoma Consulting is a professional services firm founded by Rofhiwa Nethengwe, specializing in SETA and QCTO accreditation, training, assessments, and ISO 9001 certification.</p>
+                    <p>With over 3 years of experience, we have helped numerous organizations achieve compliance and excellence in their operations. Our team of experts is dedicated to providing personalized service and guidance throughout every step of the process.</p>
+                    <p>We pride ourselves on our professional approach, attention to detail, and commitment to client success.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="assets/about-image.jpg" alt="Rofhiwa Nethengwe - Founder of Nsoma Consulting" style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Valued Clients</h2>
+                <p>We've had the privilege of working with these outstanding organizations</p>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-logo">
+                        <img src="assets/company4.jpg" alt="SIZO Community" style="width: 100%; height: 80px; object-fit: contain;">
+                    </div>
+                    <div class="client-info">
+                        <h3>SIZO Community</h3>
+                        <p>Restoration Projects</p>
+                        <p>"Seeds of Wilderness, forests of hope."</p>
+                    </div>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-logo">
+                        <img src="assets/company2.jpg" alt="Women Leadership" style="width: 100%; height: 80px; object-fit: contain;">
+                    </div>
+                    <div class="client-info">
+                        <h3>Women Leadership</h3>
+                        <p>Social Empowerment</p>
+                    </div>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-logo">
+                        <img src="assets/company3.jpg" alt="MES Organization" style="width: 100%; height: 80px; object-fit: contain;">
+                    </div>
+                    <div class="client-info">
+                        <h3>MES Organization</h3>
+                        <p>Since 1986</p>
+                        <p>"Changing the heart of the city!"</p>
+                    </div>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-logo">
+                        <img src="assets/company1.jpg" alt="Mighty Rave" style="width: 100%; height: 80px; object-fit: contain;">
+                    </div>
+                    <div class="client-info">
+                        <h3>Mighty Rave</h3>
+                        <p>Professional Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us to discuss how we can help your organization achieve its goals.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Reach out to us for a consultation or to learn more about our services. We're here to help you navigate the accreditation and certification process.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="https://wa.me/27767805455" style="color: white; text-decoration: none;">076 780 5455</a></span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:rofhienethengwe@gmail.com" style="color: white; text-decoration: none;">rofhienethengwe@gmail.com</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/rofhiwa-nethengwe-7888a8b1/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/27767805455"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="mailto:rofhienethengwe@gmail.com" method="post" enctype="text/plain">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send via Email</button>
+                    </form>
+                    
+                    <!-- Alternative Contact Methods -->
+                    <div style="margin-top: 30px; text-align: center;">
+                        <p style="color: #ddd; margin-bottom: 20px;">Or contact us directly:</p>
+                        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                            <a href="https://wa.me/27767805455?text=Hi, I'm interested in your services" class="btn" style="text-decoration: none;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="mailto:rofhienethengwe@gmail.com?subject=Inquiry about your services" class="btn" style="text-decoration: none;">
+                                <i class="fas fa-envelope"></i> Email
+                            </a>
+                            <a href="tel:+27767805455" class="btn" style="text-decoration: none;">
+                                <i class="fas fa-phone"></i> Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Nsoma Consulting</h3>
+                    <p>Professional accreditation, training, and certification services to help your organization excel.</p>
+                    <p>© 2025 Nsoma Consulting. All rights reserved.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <p>SETA Accreditation</p>
+                    <p>QCTO Accreditation</p>
+                    <p>ISO 9001 Certification</p>
+                    <p>Training & Assessments</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p>076 780 5455</p>
+                    <p>rofhienethengwe@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Designed with ❤️ by Maanda Netshisumbewa for Nsoma Consulting</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+</html>

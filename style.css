@@ -1,0 +1,94 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #222;
+}
+header {
+    background: #2d0036;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+.logo {
+    height: 60px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.hero {
+    background: linear-gradient(90deg, #2d0036 60%, #7c3aed 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px 60px 20px;
+}
+.cta {
+    display: inline-block;
+    margin-top: 20px;
+    background: #7c3aed;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.cta:hover {
+    background: #2d0036;
+}
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+h2 {
+    color: #7c3aed;
+    margin-bottom: 20px;
+}
+.company-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.company-gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44,0,54,0.08);
+}
+footer {
+    background: #2d0036;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .company-gallery img {
+        width: 100px;
+        height: 100px;
+    }
+}
